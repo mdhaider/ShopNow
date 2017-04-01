@@ -1,0 +1,71 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">130dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">10dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="navigation_drawer_width">300dp</dimen>
+
+    <!--Text Size in Navigation TextViews-->
+    <dimen name="nav_large_text">18sp</dimen>
+    <dimen name="nav_smaller_text">16sp</dimen>
+    <dimen name="nav_smallest_text">14sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+
+    <dimen name="nav_padding_left">8dp</dimen>
+    <dimen name="signout_padding_left">40dp</dimen>
+    <dimen name="signout_padding_top">10dp</dimen>
+    <dimen name="signout_padding_bottom">10dp</dimen>
+
+    <dimen name="signIn_padding_top">10dp</dimen>
+    <dimen name="forgotPwd_padding_top">20dp</dimen>
+
+    <!--<dimen name="nav_header_height">10dp</dimen>-->
+    <dimen name="dp_1">1dp</dimen>
+    <dimen name="dp_3">3dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
+    <dimen name="dp_1point5">1.5dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_0">0dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_14">12dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="sp_60">60sp</dimen>
+    <dimen name="sp_80">80sp</dimen>
+    <dimen name="sp_40">40sp</dimen>
+    <dimen name="sp_30">30sp</dimen>
+
+    <dimen name="f9">14pt</dimen>
+    <dimen name="f10">12pt</dimen>
+    <dimen name="f14">16pt</dimen>
+
+    <dimen name="eula_acceptance_text">15sp</dimen>
+
+    <!-- Welcome Screen dimensions-->
+    <dimen name="marginFromLeft">32dp</dimen>
+    <dimen name="marginFromRight">31dp</dimen>
+    <dimen name="marginFromTop1">56dp</dimen>
+    <dimen name="marginFromTop2">20dp</dimen>
+    <dimen name="marginFromTop3">24dp</dimen>
+    <dimen name="marginFromTop4">28dp</dimen>
+    <dimen name="marginFromTop7">16dp</dimen>
+
+    <!--Business Role dimensions-->
+    <dimen name="marginFrmTop1">44dp</dimen>
+    <dimen name="marginFrmTop2">4dp</dimen>
+    <dimen name="marginFrmLeftRight">16dp</dimen>
+    <dimen name="marginFrmBottom">36dp</dimen>
+    <dimen name="marginFrmLeft">28dp</dimen>
+    <dimen name="marginFrmStart">66dp</dimen>
+
+
+
+
+</resources>

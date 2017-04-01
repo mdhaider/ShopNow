@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">@android:color/darker_gray</color>
+    <color name="textColorPrimary">#ffffff</color>
+
+    <color name="toobarColor">#3F51B5</color>
+
+    <color name="signOutFromDrawer">#ffffff</color>
+    <color name="navigationBarBackgroundColor">#ffffff</color>
+    <color name="legalItemsDrawer">#ffffff</color>
+
+    <color name="userProfileHeading">#ffffff</color>
+    <color name="userProfileText">#ffffff</color>
+
+    <color name="dialog_background_lessalpha">#7e000000</color>
+
+</resources>

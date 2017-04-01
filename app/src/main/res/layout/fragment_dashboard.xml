@@ -1,0 +1,126 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.oneapplab.shopnow.fragments.DashboardFragment">
+
+
+
+        <LinearLayout
+            android:id="@+id/fragment_dashboard_parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/imgView"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/homemage"
+                android:scaleType="centerCrop" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:layout_marginTop="20dp"
+                android:layout_weight="2"
+                >
+                <Button
+                    android:id="@+id/upload"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Image"
+                    android:background="@drawable/rounded_gradients_button"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="10dp"/>
+
+
+                <Button
+                    android:id="@+id/takePicture"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Take Picture"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_gradients_button"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/edittlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/et1"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="5dp"
+                    android:background="@drawable/edittext_bg_round"
+                    android:hint="Brief decription about item.."
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/btnLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:layout_weight="3">
+                <Button
+                    android:id="@+id/cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:background="@drawable/rounded_gradients_button"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="10dp"/>
+
+
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:layout_weight="2"
+                    android:background="@drawable/rounded_gradients_button"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"/>
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+</FrameLayout>
