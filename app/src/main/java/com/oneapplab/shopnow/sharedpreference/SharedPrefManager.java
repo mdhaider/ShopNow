@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 
 public class SharedPrefManager {
 
-    private static final String SHARED_PREF_NAME = "FCMSharedPref";
+    private static final String SHARED_PREF_NAME = "FCMSharedPrefShpNow";
     private static final String TAG_TOKEN = "tagtoken";
 
     private static SharedPrefManager mInstance;

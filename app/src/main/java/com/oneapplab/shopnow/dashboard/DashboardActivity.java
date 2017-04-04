@@ -2,6 +2,7 @@ package com.oneapplab.shopnow.dashboard;
 
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,6 +21,7 @@ import android.widget.LinearLayout;
 
 import com.oneapplab.shopnow.MessageBoxService.MessageBoxService;
 import com.oneapplab.shopnow.R;
+import com.oneapplab.shopnow.activities.MainActivity;
 import com.oneapplab.shopnow.baseDataContainer.BaseDataContainer;
 import com.oneapplab.shopnow.baseFragment.BaseFragment;
 import com.oneapplab.shopnow.enums.FragmentEnum;
@@ -452,7 +454,9 @@ public class DashboardActivity extends AppCompatActivity implements ExpandableLi
                 break;
 
             case 5:
-                DashboardActivity.this.finish();
+                //DashboardActivity.this.finish();
+                Intent intent=new Intent(this, MainActivity.class);
+                startActivity(intent);
                 break;
 
         }

@@ -30,7 +30,6 @@
     <string name="ariba_supplier">Ariba Supplier</string>
 
 
-
     <string name="action_settings">Settings</string>
 
 
@@ -70,9 +69,6 @@
     <string name="dashboard_notification_note_placeholder">We need to make few adjustments to the invoice sent last week</string>
     <string name="dashboard_titledrop_textone">All Customer</string>
     <string name="dashboard_titledrop_texttwo">My Customer</string>
-
-
-
 
 
     <!--Text for ANMobileUserAction API-->
@@ -130,6 +126,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string name="error_phone_digit">This field is required</string>
 
 
 </resources>

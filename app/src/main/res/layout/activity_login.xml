@@ -11,50 +11,22 @@
     android:background="@color/c34"
     tools:context="com.oneapplab.shopnow.activities.LoginActivity">
 
-    <RadioGroup
-        android:id="@+id/businessGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp"
-        android:visibility="gone">
-
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="User"/>
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-
-            android:text="Shop"/>
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/accepBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="goToMain"
-        android:visibility="gone"
-        android:text="Submit"
-         />
-
-    <!-- Login progress -->
     <ProgressBar
         android:id="@+id/login_progress"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/login_form"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/login_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -71,22 +43,23 @@
                 android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
-                    android:id="@+id/email"
+                    android:id="@+id/emailLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:text="user@123" />
+                    android:text="user@shop.com" />
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true">
 
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/passwordLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_password"
@@ -95,8 +68,7 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:text="password123"
-                    android:singleLine="true" />
+                    android:text="user123"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -197,14 +169,12 @@
 
 
 
-
-
-
         </LinearLayout>
 
 
 
     </LinearLayout>
+
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -232,10 +202,19 @@
                 android:layout_marginTop="@dimen/dp_10"
                 android:layout_gravity="center_horizontal|right"
                 android:background="@color/c2" />
+
+
+
+
         </FrameLayout>
 
 
 
 
+
+
+
+
+</LinearLayout>
 
 </LinearLayout>

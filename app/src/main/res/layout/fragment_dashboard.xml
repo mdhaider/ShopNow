@@ -32,7 +32,7 @@
                 android:layout_weight="2"
                 >
                 <Button
-                    android:id="@+id/upload"
+                    android:id="@+id/upload_photo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Upload Image"
@@ -45,7 +45,7 @@
 
 
                 <Button
-                    android:id="@+id/takePicture"
+                    android:id="@+id/takePictures"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Take Picture"
@@ -104,7 +104,7 @@
 
 
                 <Button
-                    android:id="@+id/submit"
+                    android:id="@+id/submitPhotos"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Submit"
