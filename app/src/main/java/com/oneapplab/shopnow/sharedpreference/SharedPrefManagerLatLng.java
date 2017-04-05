@@ -7,22 +7,22 @@ import android.content.SharedPreferences;
  * Created by haider on 23-03-2017.
  */
 
-public class SharedPrefManager2 {
+public class SharedPrefManagerLatLng {
 
     private static final String SHARED_PREF_NAME = "SharedPrefLat";
     private static final String TAG_TOKEN = "lattoken";
     private static final String TAG_TOKE = "lngtoken";
 
-    private static SharedPrefManager2 mInstance;
+    private static SharedPrefManagerLatLng mInstance;
     private static Context mCtx;
 
-    private SharedPrefManager2(Context context) {
+    private SharedPrefManagerLatLng(Context context) {
         mCtx = context;
     }
 
-    public static synchronized SharedPrefManager2 getInstance(Context context) {
+    public static synchronized SharedPrefManagerLatLng getInstance(Context context) {
         if (mInstance == null) {
-            mInstance = new SharedPrefManager2(context);
+            mInstance = new SharedPrefManagerLatLng(context);
         }
         return mInstance;
     }

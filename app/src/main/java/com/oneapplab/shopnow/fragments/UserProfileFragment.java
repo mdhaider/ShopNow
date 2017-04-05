@@ -2,7 +2,7 @@ package com.oneapplab.shopnow.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatImageView;
 import android.view.LayoutInflater;
@@ -10,33 +10,34 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.oneapplab.shopnow.R;
-import com.oneapplab.shopnow.baseFragment.BaseFragment;
-import com.oneapplab.shopnow.enums.FragmentEnum;
-import com.oneapplab.shopnow.firebaseDatabase.DatabaseAccess;
 
 import java.util.List;
 
 
-public class UserProfileFragment extends BaseFragment {
+public class UserProfileFragment extends Fragment {
 
     private AppCompatEditText userName, userOrganization, userBusinessRole, userPhone,userEmail, userOfficeAddress;
     private AppCompatImageView backButtonArrowIV, selectBusinessRole;
     private String str, allData;
-    private DatabaseAccess dbAccess;
     private Context context;
     private List<String> fullNames;
+
+    public static UserProfileFragment newInstance() {
+        UserProfileFragment userProfileFragments = new UserProfileFragment();
+        return userProfileFragments;
+
+
+    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.nav_user_profile, container, false);
+        return inflater.inflate(R.layout.fragment_user_profile, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        handler = new Handler();
-        mListener.setToolbarTitle("Profile Settings", FragmentEnum.Dashboard);
 
 
 
@@ -59,23 +60,5 @@ public class UserProfileFragment extends BaseFragment {
             }
 */
     }
-
-
-
-
-
-    @Override
-    public boolean shouldDoNormalOperationOnBackPressed() {
-
-        return false;
-    }
-    @Override
-    public void toolbarTitleClicked(boolean anchor) {
-
-    }
-
-
-
-
 
 }

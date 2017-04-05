@@ -13,7 +13,7 @@ import android.support.v4.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.oneapplab.shopnow.R;
-import com.oneapplab.shopnow.dashboard.DashboardActivity;
+import com.oneapplab.shopnow.activities.DashboardActivity;
 
 /**
  * Created by haider on 28-03-2017.

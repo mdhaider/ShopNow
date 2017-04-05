@@ -5,8 +5,6 @@
     android:layout_height="match_parent"
     tools:context="com.oneapplab.shopnow.fragments.DashboardFragment">
 
-
-
         <LinearLayout
             android:id="@+id/fragment_dashboard_parent_layout"
             android:layout_width="match_parent"
@@ -116,10 +114,6 @@
                     android:layout_marginRight="10dp"/>
 
             </LinearLayout>
-
-
-
-
 
         </LinearLayout>
 

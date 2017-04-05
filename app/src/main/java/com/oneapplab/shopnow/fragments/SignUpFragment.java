@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +27,13 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.digits.sdk.android.AuthCallback;
+import com.digits.sdk.android.Digits;
+import com.digits.sdk.android.DigitsAuthButton;
+import com.digits.sdk.android.DigitsException;
+import com.digits.sdk.android.DigitsSession;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -37,11 +44,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.oneapplab.shopnow.R;
-import com.oneapplab.shopnow.firebaseDatabase.DatabaseAccess;
 import com.oneapplab.shopnow.pojo.SignUp;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.core.TwitterCore;
 
 import java.util.ArrayList;
 import java.util.UUID;
+
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by haider on 01-04-2017.
@@ -64,6 +74,9 @@ public class SignUpFragment extends Fragment
     private Context context;
     private static String uniqueID = null;
     private static final String PREF_UNIQUE_ID = "PREF_UNIQUE_ID";
+    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    private static final String TWITTER_KEY = "xCY2q3J2DxDZTf69gjPxO4I8b";
+    private static final String TWITTER_SECRET = "KBlLvk3XpaykUly7zmV3MSsSjYPgjFto2kHB5JXKTY1VrgEOt8";
 
     private RadioGroup businessType;
     String customerType;
@@ -78,8 +91,6 @@ public class SignUpFragment extends Fragment
     private EditText address;
 
     private TextInputLayout inputLayoutPhone;
-
-    private static DatabaseAccess instance;
     private FirebaseDatabase database;
     private DatabaseReference signUpRef,signUpAccess;
     ArrayList<String> phoneNumbers;
@@ -87,6 +98,14 @@ public class SignUpFragment extends Fragment
 
     RadioGroup radioGroup;
     SignUp user;
+
+
+    public static SignUpFragment newInstance() {
+        SignUpFragment fragmentSignup = new SignUpFragment();
+        return fragmentSignup;
+
+
+    }
 
 
 
@@ -109,6 +128,7 @@ public class SignUpFragment extends Fragment
 
         }
     };
+
 
 
     @Override
@@ -161,6 +181,26 @@ public class SignUpFragment extends Fragment
 
         phone.addTextChangedListener(new MyTextWatcher(phone));
 
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        Fabric.with(getActivity(),new TwitterCore(authConfig), new Digits.Builder().build());
+
+
+        DigitsAuthButton digitsButton = (DigitsAuthButton) view.findViewById(R.id.auth_button);
+        digitsButton.setCallback(new AuthCallback() {
+            @Override
+            public void success(DigitsSession session, String phoneNumber) {
+                // TODO: associate the session userID with your user model
+                Toast.makeText(getActivity(), "Authentication successful for "
+                        + phoneNumber, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void failure(DigitsException exception) {
+                Log.d("Digits", "Sign in with Digits failure", exception);
+            }
+        });
+
+
 
     }
 
@@ -183,7 +223,7 @@ public class SignUpFragment extends Fragment
         if(!validatePhone()){
             return;
         }
-       /* token= SharedPrefManager.getInstance(context).getDeviceToken();
+       /* token= SharedPrefManagerToken.getInstance(context).getDeviceToken();
 
 
         if (token == null) {

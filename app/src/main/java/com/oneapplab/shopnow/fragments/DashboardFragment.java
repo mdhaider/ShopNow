@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
@@ -27,11 +28,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.oneapplab.shopnow.R;
-import com.oneapplab.shopnow.baseFragment.BaseFragment;
-import com.oneapplab.shopnow.enums.FragmentEnum;
 import com.oneapplab.shopnow.firebase.MyFirebaseMessagingService;
-import com.oneapplab.shopnow.fragmentHelper.FragmentMessageContainer;
-import com.oneapplab.shopnow.sharedpreference.SharedPrefManager;
+import com.oneapplab.shopnow.sharedpreference.SharedPrefManagerToken;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,7 +53,7 @@ import okhttp3.Response;
 import static android.app.Activity.RESULT_OK;
 
 
-public class DashboardFragment extends BaseFragment {
+public class DashboardFragment extends Fragment {
     private AppCompatButton btn1;
 
     private Button btnSubmit;
@@ -92,18 +90,19 @@ public class DashboardFragment extends BaseFragment {
     String mCurrentPhotoPath;
     LinearLayout editLayout, btnLayout;
 
-    private View.OnClickListener sendToFrag1 = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
 
-            mListener.openDesiredFragment(new FragmentMessageContainer(
-                    FragmentEnum.OneTimePassword,
-                    FragmentEnum.Dashboard,
-                    null,
-                    true,
-                    null));
-        }
-    };
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    private OnFragmentInteractionListener mListener;
+
+    public DashboardFragment() {
+        // Required empty public constructor
+    }
 
 
     private View.OnClickListener mBtnClickListener = new View.OnClickListener() {
@@ -125,9 +124,23 @@ public class DashboardFragment extends BaseFragment {
     };
 
 
+    public static DashboardFragment newInstance(String param1, String param2) {
+        DashboardFragment fragment = new DashboardFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
     }
 
     @Override
@@ -135,11 +148,32 @@ public class DashboardFragment extends BaseFragment {
         return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
 
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
+        }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
     @Override
     public void onViewCreated(View view, final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        mListener.setToolbarTitle(getString(R.string.dashboard_fragment), FragmentEnum.Dashboard);
 
         itemName = (EditText) view.findViewById(R.id.et1);
         btnSubmit = (Button) view.findViewById(R.id.submitPhotos);
@@ -162,23 +196,6 @@ public class DashboardFragment extends BaseFragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-    }
-
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-
-    }
-
-    @Override
-    public void toolbarTitleClicked(boolean anchor) {
-
-    }
-
-    @Override
-    public boolean shouldDoNormalOperationOnBackPressed() {
-        return false;
     }
 
     public void openImageChooser() {
@@ -267,7 +284,7 @@ public class DashboardFragment extends BaseFragment {
     public void submitRequest() {
 
         //get token
-        tokens = SharedPrefManager.getInstance(getActivity()).getDeviceToken();
+        tokens = SharedPrefManagerToken.getInstance(getActivity()).getDeviceToken();
 
         //get shopName
         buyItem = itemName.getText().toString();
@@ -390,6 +407,11 @@ public class DashboardFragment extends BaseFragment {
         call.enqueue(callback);
         return call;
 
+    }
+
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
     }
 
 }

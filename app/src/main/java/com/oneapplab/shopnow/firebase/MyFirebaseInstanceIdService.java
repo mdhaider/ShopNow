@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
-import com.oneapplab.shopnow.sharedpreference.SharedPrefManager;
+import com.oneapplab.shopnow.sharedpreference.SharedPrefManagerToken;
 
 
 /**
@@ -26,7 +26,7 @@ public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
         storeToken(refreshedToken);
     }
     public void storeToken(String token){
-        SharedPrefManager.getInstance(getApplicationContext()).saveDeviceToken(token);
+        SharedPrefManagerToken.getInstance(getApplicationContext()).saveDeviceToken(token);
 
     }
 }

@@ -26,20 +26,6 @@
 
         android:weightSum="1">
 
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tv_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:gravity="left"
-            android:layout_gravity="center"
-            android:layout_weight=".9"
-            android:text="Create account for Shop Now"
-
-
-            android:textColor="@android:color/black" />
-
         <ImageButton
             android:id="@+id/btn_close"
             android:layout_width="0dp"
@@ -47,9 +33,31 @@
             android:background="@null"
             android:scaleType="fitCenter"
             android:layout_weight=".1"
-            android:src="@drawable/ic_close_red"/>
+            android:src="@drawable/arrow_back_black"/>
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight=".9"
+            android:text="Create account for Shop Now"
+            android:textColor="@android:color/holo_blue_dark" />
 
     </LinearLayout>
+
+
+    <com.digits.sdk.android.DigitsAuthButton
+        android:id="@+id/auth_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"/>
 
 
 

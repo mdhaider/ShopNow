@@ -7,21 +7,21 @@ import android.content.SharedPreferences;
  * Created by haider on 23-03-2017.
  */
 
-public class SharedPrefManager {
+public class SharedPrefManagerToken {
 
     private static final String SHARED_PREF_NAME = "FCMSharedPrefShpNow";
     private static final String TAG_TOKEN = "tagtoken";
 
-    private static SharedPrefManager mInstance;
+    private static SharedPrefManagerToken mInstance;
     private static Context mCtx;
 
-    private SharedPrefManager(Context context) {
+    private SharedPrefManagerToken(Context context) {
         mCtx = context;
     }
 
-    public static synchronized SharedPrefManager getInstance(Context context) {
+    public static synchronized SharedPrefManagerToken getInstance(Context context) {
         if (mInstance == null) {
-            mInstance = new SharedPrefManager(context);
+            mInstance = new SharedPrefManagerToken(context);
         }
         return mInstance;
     }
