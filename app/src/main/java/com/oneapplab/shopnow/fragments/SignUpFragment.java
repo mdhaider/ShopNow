@@ -44,7 +44,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.oneapplab.shopnow.R;
-import com.oneapplab.shopnow.pojo.SignUp;
+import com.oneapplab.shopnow.models.SignUp;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 
@@ -121,7 +121,6 @@ public class SignUpFragment extends Fragment
                     FragmentManager manager = getFragmentManager();
                     android.support.v4.app.FragmentTransaction transaction = manager.beginTransaction();
                     transaction.replace(R.id.content_frame, new LoginFragment());
-                    transaction.addToBackStack(null);
                     transaction.commit();
                     break;
             }

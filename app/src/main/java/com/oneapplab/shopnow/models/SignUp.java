@@ -1,4 +1,4 @@
-package com.oneapplab.shopnow.pojo;
+package com.oneapplab.shopnow.models;
 
 /**
  * Created by haider on 13-02-2017.

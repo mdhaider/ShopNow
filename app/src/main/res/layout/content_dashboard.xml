@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
     tools:context="com.oneapplab.shopnow.activities.DashboardActivity">
 
     <FrameLayout
-        android:id="@+id/content_frame"
+        android:id="@+id/content_frame_dashboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
