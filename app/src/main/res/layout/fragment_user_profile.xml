@@ -14,14 +14,35 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="160dp"
 
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:layout_weight="0.3"
+                        android:gravity="center"
+                        android:text="Profile"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/nav_large_text" />
+
+
+                </LinearLayout>
 
                 <android.support.v7.widget.AppCompatImageView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:id="@+id/profileImg"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_marginTop="@dimen/dp_4"
@@ -53,7 +74,6 @@
                 android:textColor="@color/c29"
                 android:layout_marginTop="@dimen/dp_4"
                 android:background="@null"
-                android:text="shop now"
                 android:textSize="@dimen/nav_large_text" />
 
             <View
@@ -80,7 +100,6 @@
                 android:layout_marginLeft="@dimen/dp_10"
                 android:layout_marginTop="@dimen/dp_10"
                 android:textColor="@color/c29"
-                android:text="shop@shop.com"
                 android:background="@null"
                 android:textSize="@dimen/nav_large_text" />
 
@@ -109,7 +128,6 @@
                 android:layout_marginLeft="@dimen/dp_10"
                 android:layout_marginTop="@dimen/dp_10"
                 android:textColor="@color/c29"
-                android:text="91234567890"
                 android:inputType="phone"
                 android:background="@null"
                 android:textSize="@dimen/nav_large_text" />
@@ -139,7 +157,6 @@
                 android:layout_marginLeft="@dimen/dp_10"
                 android:layout_marginTop="@dimen/dp_10"
                 android:textColor="@color/c29"
-                android:text="Bangalore"
                 android:maxEms="10"
                 android:minLines="2"
                 android:background="@null"

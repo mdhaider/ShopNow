@@ -27,6 +27,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.oneapplab.shopnow.R;
 import com.oneapplab.shopnow.firebase.MyFirebaseMessagingService;
 import com.oneapplab.shopnow.sharedpreference.SharedPrefManagerToken;
@@ -100,6 +101,10 @@ public class DashboardFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
+
+    private Uri filePath;
+
+
     public DashboardFragment() {
         // Required empty public constructor
     }
@@ -111,13 +116,17 @@ public class DashboardFragment extends Fragment {
             switch (v.getId()) {
                 case R.id.upload_photo:
                     openImageChooser();
+
+
+
                     break;
 
                 case R.id.takePictures:
                     dispatchTakePicturesIntent();
                     break;
                 case R.id.submitPhotos:
-                    submitRequest();
+                   // submitRequest();
+                    //uploadFile();
                     break;
             }
         }
@@ -189,6 +198,9 @@ public class DashboardFragment extends Fragment {
         btnUpload.setOnClickListener(mBtnClickListener);
         takePictures.setOnClickListener(mBtnClickListener);
 
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+
+
 
     }
 
@@ -210,10 +222,10 @@ public class DashboardFragment extends Fragment {
             case SELECT_PICTURE:
                 if (resultCode == RESULT_OK) {
                     // Get the url from data
-                    Uri selectedImageUri = data.getData();
-                    if (null != selectedImageUri) {
+                    filePath = data.getData();
+                    if (null != filePath) {
                         // Get the path from the Uri
-                        String path = getPathFromURI(selectedImageUri);
+                        String path = getPathFromURI(filePath);
                         Log.i(TAG, "Image Path : " + path);
                         editLayout.setVisibility(View.VISIBLE);
                         btnLayout.setVisibility(View.VISIBLE);
@@ -222,7 +234,7 @@ public class DashboardFragment extends Fragment {
 
 
                         // Set the image in ImageView
-                        imgView.setImageURI(selectedImageUri);
+                        imgView.setImageURI(filePath);
                         break;
                     }
                 }
@@ -413,5 +425,7 @@ public class DashboardFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 
 }

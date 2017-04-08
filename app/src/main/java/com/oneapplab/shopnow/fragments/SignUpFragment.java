@@ -72,7 +72,7 @@ public class SignUpFragment extends Fragment
 
 
     private Context context;
-    private static String uniqueID = null;
+    public static String uniqueID = null;
     private static final String PREF_UNIQUE_ID = "PREF_UNIQUE_ID";
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
     private static final String TWITTER_KEY = "xCY2q3J2DxDZTf69gjPxO4I8b";
@@ -127,6 +127,9 @@ public class SignUpFragment extends Fragment
 
         }
     };
+
+
+
 
 
 
@@ -199,6 +202,8 @@ public class SignUpFragment extends Fragment
             }
         });
 
+        id(mContext);
+
 
 
     }
@@ -241,7 +246,7 @@ public class SignUpFragment extends Fragment
         //getRandomNumber();
 
         String fullName = fname.getText().toString();
-        String mobileNumber = phone.getText().toString();
+        final String mobileNumber = phone.getText().toString();
         final String email = emailid.getText().toString();
         String password = passwords.getText().toString();
         String addresses = address.getText().toString();
@@ -270,16 +275,8 @@ public class SignUpFragment extends Fragment
         user.setAddress(addresses);
         user.setToken(token);
 
-
-
-
-
-        signUpRef = database.getReference("signup");
+        signUpRef = database.getReference();
         userId = signUpRef.push().getKey();
-
-
-
-
 
         signUpRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -305,7 +302,7 @@ public class SignUpFragment extends Fragment
                         if(task.isSuccessful()){
                             progressDialog.setMessage("Registration successful...");
 
-                            signUpRef.child(customerType).child(userId).setValue(user);
+                            signUpRef.child("signup").child(uniqueID).child(customerType).child(uniqueID).setValue(user);
                             // display some message here
                           //  Toast.makeText(getContext(),"Successfully registered",Toast.LENGTH_LONG).show();
                         }else{
