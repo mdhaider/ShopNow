@@ -117,8 +117,6 @@ public class DashboardFragment extends Fragment {
                 case R.id.upload_photo:
                     openImageChooser();
 
-
-
                     break;
 
                 case R.id.takePictures:

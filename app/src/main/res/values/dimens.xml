@@ -9,7 +9,7 @@
     <dimen name="navigation_drawer_width">300dp</dimen>
 
     <!--Text Size in Navigation TextViews-->
-    <dimen name="nav_large_text">18sp</dimen>
+    <dimen name="nav_large_text">15sp</dimen>
     <dimen name="nav_smaller_text">16sp</dimen>
     <dimen name="nav_smallest_text">14sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
