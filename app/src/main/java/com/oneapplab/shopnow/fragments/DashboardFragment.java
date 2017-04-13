@@ -62,6 +62,7 @@ public class DashboardFragment extends Fragment {
     private RadioGroup businessType;
     FirebaseDatabase database;
     DatabaseReference refShop;
+   private AppCompatImageView notificationRight;
     private static final String TAG = "myfirebsae";
 
     String token;
@@ -191,6 +192,8 @@ public class DashboardFragment extends Fragment {
         imgView = (AppCompatImageView) view.findViewById(R.id.imgView);
         editLayout = (LinearLayout) view.findViewById(R.id.edittlayout);
         btnLayout = (LinearLayout) view.findViewById(R.id.btnLayout);
+        notificationRight = (AppCompatImageView) view.findViewById(R.id.actionbar_layout_right_adjacent);
+       // notificationRight.setVisibility(View.VISIBLE);
 
         btnSubmit.setOnClickListener(mBtnClickListener);
         btnUpload.setOnClickListener(mBtnClickListener);

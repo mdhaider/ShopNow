@@ -304,11 +304,11 @@ public class SignUpFragment extends Fragment
 
                             signUpRef.child("signup").child(uniqueID).child(customerType).child(uniqueID).setValue(user);
                             // display some message here
-                          //  Toast.makeText(getContext(),"Successfully registered",Toast.LENGTH_LONG).show();
+                          Toast.makeText(getActivity(),"Successfully registered"+" "+email,Toast.LENGTH_LONG).show();
                         }else{
                             progressDialog.setMessage("Registration not successful..");
                             //display some message here
-                          //  Toast.makeText(getContext(),"Email already registered",Toast.LENGTH_LONG).show();
+                           Toast.makeText(getActivity(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();
                     }
